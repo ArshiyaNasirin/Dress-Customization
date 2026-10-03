@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATELIER COUTURE — Bespoke Dress Designer & Haute Couture Studio</title>
+    <meta name="description" content="Design your dream bespoke dress with ATELIER COUTURE. Interactive 2D dress customizer with custom measurements, luxury silks, velvet, and artisan tailoring.">
+    <link rel="stylesheet" href="dress-styles.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Top Luxury Marquee Bar -->
+    <div class="top-marquee">
+        <div class="marquee-content">
+            <span>✦ Complimentary Worldwide Bespoke Delivery</span>
+            <span>✦ 100% Custom Fit & Free Remake Guarantee</span>
+            <span>✦ Handcrafted in Paris & Milan Ateliers</span>
+            <span>✦ Certified OEKO-TEX Organic Silks</span>
+            <span>✦ VIP Styling Concierge Available 24/7</span>
+            <span>✦ Complimentary Worldwide Bespoke Delivery</span>
+            <span>✦ 100% Custom Fit & Free Remake Guarantee</span>
+        </div>
+    </div>
+
+    <!-- Sticky Navigation Bar -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-wrapper">
+            <a href="#home" class="brand-logo">
+                <span class="logo-symbol">✧</span>
+                <div class="logo-text">
+                    <h1>Atelier <span>Couture</span></h1>
+                </div>
+            </a>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#studio">Design Studio</a></li>
+                    <li><a href="#collections">Collections</a></li>
+                    <li><a href="#fabrics">Fabrics & Craft</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <select class="currency-select" id="currencySelect" aria-label="Select currency">
+                    <option value="USD">USD ($)</option>
+                    <option value="EUR">EUR (€)</option>
+                    <option value="GBP">GBP (£)</option>
+                </select>
+
+                <button class="nav-icon-btn" id="wishlistBtn" title="Saved Moodboard" aria-label="Wishlist">
+                    <i class="far fa-heart"></i>
+                    <span class="badge-count" id="wishlistCount">0</span>
+                </button>
+
+                <button class="nav-icon-btn" id="cartBtn" title="Atelier Bag" aria-label="Shopping Bag">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="badge-count" id="cartCount">0</span>
+                </button>
+
+                <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-backdrop"></div>
+            <div class="hero-glow"></div>
+            <div class="container hero-inner">
+                <div class="hero-content-col">
+                    <div class="hero-tag">
+                        <i class="fas fa-crown"></i> Haute Couture & Bespoke Tailoring
+                    </div>
+                    <h2 class="hero-title">
+                        Engineered to <em>Flatter</em>,<br>Tailored Just for You.
+                    </h2>
+                    <p class="hero-description">
+                        Step into our virtual Parisian atelier. Customize silhouette, neckline, sleeve length, luxury mulberry silks, and exact body measurements for a gown uniquely made to your form.
+                    </p>
+                    <div class="hero-cta-group">
+                        <a href="#studio" class="btn-luxury-primary">
+                            <i class="fas fa-wand-magic-sparkles"></i> Open Design Studio
+                        </a>
+                        <a href="#collections" class="btn-luxury-secondary">
+                            <i class="fas fa-compass"></i> Explore Lookbook
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <h4>45,000+</h4>
+                            <p>Bespoke Gowns Crafted</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>100%</h4>
+                            <p>Flawless Fit Guarantee</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>4.95 ★</h4>
+                            <p>Over 3,800 Client Reviews</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Floating Quick-Preset Card -->
+                <div class="hero-visual-card">
+                    <div class="hero-card-header">
+                        <span class="hero-card-badge">✨ Instant Studio Presets</span>
+                        <span class="badge-info-label">One-Click Customizer</span>
+                    </div>
+                    <span class="preset-pills-label">Choose an iconic silhouette to begin:</span>
+                    <div class="preset-pills">
+                        <button class="preset-pill active" data-preset="gala">Emerald Gala</button>
+                        <button class="preset-pill" data-preset="riviera">Riviera Silk Slip</button>
+                        <button class="preset-pill" data-preset="cocktail">Parisian Velvet</button>
+                        <button class="preset-pill" data-preset="bridal">Pearl Bridal</button>
+                    </div>
+                    <div class="hero-preview-badge-row">
+                        <div>
+                            <div class="badge-info-label">Current Preset</div>
+                            <div class="badge-info-value" id="heroPresetName">The Emerald Gala Gown</div>
+                        </div>
+                        <a href="#studio" class="btn-luxury-primary" style="padding: 0.6rem 1.2rem; font-size: 0.8rem;">
+                            Customize <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Design Studio / Customizer Section -->
+        <section id="studio" class="studio-section">
+            <div class="container">
+                <div class="section-head">
+                    <span class="section-tag">Interactive Couture Atelier</span>
+                    <h2 class="section-title">The Bespoke Design Studio</h2>
+                    <p class="section-subtitle">Fine-tune silhouette, luxury textile drape, neckline, and precise laser measurements in real time.</p>
+                </div>
+
+                <div class="studio-layout">
+                    <!-- Left: Interactive Realistic SVG Mannequin Stage -->
+                    <div class="studio-viewport" id="studioViewport">
+                        <div class="viewport-toolbar">
+                            <div class="view-modes">
+                                <button class="view-btn active" id="viewFrontBtn">Front View</button>
+                                <button class="view-btn" id="viewBackBtn">Back View</button>
+                            </div>
+                            <button class="lighting-toggle" id="lightingBtn" title="Toggle Lighting Mood">
+                                <i class="fas fa-sun"></i> <span id="lightingLabel">Studio Sun</span>
+                            </button>
+                        </div>
+
+                        <!-- Canvas Actions (Zoom & Moodboard) -->
+                        <div class="canvas-floating-actions">
+                            <button class="tool-action-btn" id="zoomInBtn" title="Zoom In"><i class="fas fa-search-plus"></i></button>
+                            <button class="tool-action-btn" id="zoomOutBtn" title="Reset Zoom"><i class="fas fa-undo-alt"></i></button>
+                            <button class="tool-action-btn" id="saveMoodboardBtn" title="Save to Moodboard"><i class="far fa-heart"></i></button>
+                            <button class="tool-action-btn" id="downloadSpecBtn" title="Download Lookbook Card"><i class="fas fa-download"></i></button>
+                        </div>
+
+                        <!-- Mannequin & Dress Canvas -->
+                        <div class="mannequin-stage" id="mannequinStage">
+                            <div class="mannequin-pedestal"></div>
+                            
+                            <!-- Scalable SVG Dress Visualizer -->
+                            <svg class="svg-dress-canvas" id="dressSvg" viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <!-- Silk Sheen Gradient -->
+                                    <linearGradient id="silkShine" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"/>
+                                        <stop offset="35%" stop-color="#ffffff" stop-opacity="0.05"/>
+                                        <stop offset="70%" stop-color="#000000" stop-opacity="0.25"/>
+                                        <stop offset="100%" stop-color="#ffffff" stop-opacity="0.15"/>
+                                    </linearGradient>
+
+                                    <!-- Ambient Lighting Filter -->
+                                    <filter id="fabricDepth" x="-20%" y="-20%" width="140%" height="140%">
+                                        <feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#000" flood-opacity="0.45"/>
+                                    </filter>
+
+                                    <!-- Patterns -->
+                                    <pattern id="patternFloral" width="40" height="40" patternUnits="userSpaceOnUse">
+                                        <circle cx="20" cy="20" r="5" fill="rgba(255,255,255,0.2)"/>
+                                        <circle cx="10" cy="10" r="2.5" fill="rgba(255,255,255,0.15)"/>
+                                        <circle cx="30" cy="30" r="2.5" fill="rgba(255,255,255,0.15)"/>
+                                    </pattern>
+                                    <pattern id="patternPolka" width="24" height="24" patternUnits="userSpaceOnUse">
+                                        <circle cx="12" cy="12" r="3.5" fill="rgba(255,255,255,0.25)"/>
+                                    </pattern>
+                                    <pattern id="patternStripes" width="20" height="20" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+                                        <line x1="0" y1="0" x2="0" y2="20" stroke="rgba(255,255,255,0.2)" stroke-width="4"/>
+                                    </pattern>
+                                </defs>
+
+                                <!-- Mannequin Body / Form -->
+                                <g id="mannequinBody" opacity="0.85">
+                                    <!-- Neck -->
+                                    <path d="M185 85 L215 85 L218 135 L182 135 Z" fill="#d8bc9d"/>
+                                    <!-- Collarbones & Shoulders -->
+                                    <path d="M130 145 C155 130 245 130 270 145 C295 160 260 210 250 240 C240 270 230 320 235 370 C240 420 260 490 265 540 L135 540 C140 490 160 420 165 370 C170 320 160 270 150 240 C140 210 105 160 130 145 Z" fill="#ecd3b6" stroke="#cfa67e" stroke-width="1.5"/>
+                                    <!-- Head Stand Finial -->
+                                    <ellipse cx="200" cy="72" rx="14" ry="18" fill="#d4af37"/>
+                                    <rect x="196" y="88" width="8" height="15" fill="#aa820a"/>
+                                </g>
+
+                                <!-- Dress Layer Group (Transformed on update) -->
+                                <g id="dressGroup" filter="url(#fabricDepth)">
+                                    <!-- Back layer (e.g. back skirt or back sleeves) -->
+                                    <g id="dressBack"></g>
+
+                                    <!-- Main Skirt Layer -->
+                                    <path id="dressSkirt" d="M160 260 Q130 400 120 530 L280 530 Q270 400 240 260 Z" fill="#1b4d3e"/>
+                                    
+                                    <!-- Skirt Pattern Overlay -->
+                                    <path id="dressSkirtPattern" d="M160 260 Q130 400 120 530 L280 530 Q270 400 240 260 Z" fill="none" opacity="0.6"/>
+
+                                    <!-- Bodice Layer -->
+                                    <path id="dressBodice" d="M145 155 Q200 170 255 155 L240 265 L160 265 Z" fill="#1b4d3e"/>
+
+                                    <!-- Bodice Pattern Overlay -->
+                                    <path id="dressBodicePattern" d="M145 155 Q200 170 255 155 L240 265 L160 265 Z" fill="none" opacity="0.6"/>
+
+                                    <!-- Neckline Cut / Collar Layer -->
+                                    <path id="dressNeckline" d="M145 155 Q200 205 255 155 Z" fill="#ecd3b6" stroke="#cfa67e" stroke-width="1"/>
+
+                                    <!-- Sleeves Layer -->
+                                    <g id="dressSleeves"></g>
+
+                                    <!-- Waist Belt / Accent Ribbon -->
+                                    <path id="dressBelt" d="M158 258 L242 258 L240 270 L160 270 Z" fill="#d4af37"/>
+                                    
+                                    <!-- High-fashion Silk Shimmer Light Reflection -->
+                                    <path id="dressShimmer" d="M175 160 Q205 260 215 520 Q195 520 185 260 Z" fill="url(#silkShine)" opacity="0.45" pointer-events="none"/>
+
+                                    <!-- Optional High-Thigh Slit Accent -->
+                                    <path id="dressSlit" d="" fill="#ecd3b6" opacity="0"/>
+                                </g>
+                            </svg>
+                        </div>
+
+                        <!-- Canvas Floating Fit Metrics -->
+                        <div class="canvas-floating-badge">
+                            <div class="floating-metric">
+                                <div class="metric-val" id="metricSize">M (US 6-8)</div>
+                                <div class="metric-lbl">Recommended Size</div>
+                            </div>
+                            <div class="floating-metric">
+                                <div class="metric-val" id="metricShape">Hourglass</div>
+                                <div class="metric-lbl">Body Contour</div>
+                            </div>
+                            <div class="floating-metric">
+                                <div class="metric-val" id="metricHours">28 hrs</div>
+                                <div class="metric-lbl">Artisan Craft Time</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Customization Controls Panel -->
+                    <div class="studio-controls">
+                        <!-- Navigation Tabs -->
+                        <div class="studio-tabs">
+                            <button class="studio-tab-btn active" data-tab="tab-silhouette">
+                                <i class="fas fa-shapes"></i> 1. Silhouette
+                            </button>
+                            <button class="studio-tab-btn" data-tab="tab-fabrics">
+                                <i class="fas fa-palette"></i> 2. Textiles & Hue
+                            </button>
+                            <button class="studio-tab-btn" data-tab="tab-measurements">
+                                <i class="fas fa-ruler-combined"></i> 3. Laser Sizing
+                            </button>
+                        </div>
+
+                        <!-- TAB 1: Silhouette & Cut -->
+                        <div class="tab-content active" id="tab-silhouette">
+                            <!-- Silhouette Style -->
+                            <div class="control-group">
+                                <div class="control-label">
+                                    <span>Gown Silhouette</span>
+                                    <span class="control-value-badge" id="valSilhouette">A-Line Gala</span>
+                                </div>
+                                <div class="options-grid">
+                                    <button class="option-card-btn active" data-silhouette="a-line">
+                                        <i class="fas fa-person-dress"></i>
+                                        <span>A-Line</span>
+                                    </button>
+                                    <button class="option-card-btn" data-silhouette="bodycon">
+                                        <i class="fas fa-gem"></i>
+                                        <span>Mermaid / Fit</span>
+                                    </button>
+                                    <button class="option-card-btn" data-silhouette="maxi">
+                                        <i class="fas fa-water"></i>
+                                        <span>Flowing Maxi</span>
+                                    </button>
+                                    <button class="option-card-btn" data-silhouette="mini">
+                                        <i class="fas fa-bolt"></i>
+                                        <span>Cocktail Mini</span>
+                                    </button>
+                                    <button class="option-card-btn" data-silhouette="ballgown">
+                                        <i class="fas fa-crown"></i>
+                                        <span>Ballgown</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Neckline Cut -->
+                            <div class="control-group">
+                                <div class="control-label">
+                                    <span>Neckline Architecture</span>
+                                    <span class="control-value-badge" id="valNeckline">Sweetheart</span>
+                                </div>
+                                <div class="options-grid">
+                                    <button class="option-card-btn active" data-neckline="sweetheart">
+                                        <i class="far fa-heart"></i>
+                                        <span>Sweetheart</span>
+                                    </button>
+                                    <button class="option-card-btn" data-neckline="v-neck">
+                                        <i class="fas fa-angle-down"></i>
+                                        <span>Plunging V</span>
+                                    </button>
+                                    <button class="option-card-btn" data-neckline="square">
+                                        <i class="far fa-square"></i>
+                                        <span>Square Cut</span>
+                                    </button>
+                                    <button class="option-card-btn" data-neckline="off-shoulder">
+                                        <i class="fas fa-minus"></i>
+                                        <span>Off-Shoulder</span>
+                                    </button>
+                                    <button class="option-card-btn" data-neckline="halter">
+                                        <i class="fas fa-ribbon"></i>
+                                        <span>Halter Neck</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Sleeves -->
+                            <div class="control-group">
+                                <div class="control-label">
+                                    <span>Sleeve Configuration</span>
+                                    <span class="control-value-badge" id="valSleeves">Sleeveless</span>
+                                </div>
+                                <div class="options-grid">
+                                    <button class="option-card-btn active" data-sleeves="sleeveless">
+                                        <i class="fas fa-circle-notch"></i>
+                                        <span>Sleeveless</span>
+                                    </button>
+                                    <button class="option-card-btn" data-sleeves="cap">
+                                        <i class="fas fa-feather"></i>
+                                        <span>Cap Sleeve</span>
+                                    </button>
+                                    <button class="option-card-btn" data-sleeves="puff">
+                                        <i class="fas fa-cloud"></i>
+                                        <span>Sheer Puff</span>
+                                    </button>
+                                    <button class="option-card-btn" data-sleeves="long">
+                                        <i class="fas fa-hand-sparkles"></i>
+                                        <span>Long Fitted</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Couture Accents (Slit & Belt) -->
+                            <div class="control-group">
+                                <div class="control-label">
+                                    <span>Couture Enhancements</span>
+                                </div>
+                                <div class="options-grid" style="grid-template-columns: 1fr 1fr;">
+                                    <button class="option-card-btn" id="toggleSlitBtn">
+                                        <i class="fas fa-cut"></i>
+                                        <span>High-Thigh Slit</span>
+                                    </button>
+                                    <button class="option-card-btn active" id="toggleBeltBtn">
+                                        <i class="fas fa-ring"></i>
+                                        <span>Sash & Crystal Belt</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TAB 2: Fabrics & Color Palette -->
+                        <div class="tab-content" id="tab-fabrics">
+                            <!-- Fabric Textile Selection -->
+                            <div class="control-group">
+                                <div class="control-label">
+                                    <span>Luxury Fabric Material</span>
+                                    <span class="control-value-badge" id="valFabric">Mulberry Silk</span>
+                                </div>
+                                <div class="fabric-grid">
+                                    <button class="fabric-card-btn active" data-fabric="silk" data-price="75">
+                                        <div class="fabric-swatch-circle" style="background: radial-gradient(circle, #f5f0eb 0%, #c4b5a5 100%);"></div>
+                                        <div class="fabric-info">
+                                            <h5>Mulberry Silk Satin</h5>
+                                            <p>Fluid, luminous sheen (+$75)</p>
+                                        </div>
+                                    </button>
+                                    <button class="fabric-card-btn" data-fabric="velvet" data-price="60">
+                                        <div class="fabric-swatch-circle" style="background: radial-gradient(circle, #2d1825 0%, #150a12 100%);"></div>
+                                        <div class="fabric-info">
+                                            <h5>Crushed Velvet</h5>
+                                            <p>Opulent, soft drape (+$60)</p>
+                                        </div>
+                                    </button>
+                                    <button class="fabric-card-btn" data-fabric="chiffon" data-price="45">
+                                        <div class="fabric-swatch-circle" style="background: radial-gradient(circle, #e8f4f8 0%, #adc9d6 100%);"></div>
+                                        <div class="fabric-info">
+                                            <h5>French Chiffon</h5>
+                                            <p>Ethereal & lightweight (+$45)</p>
+                                        </div>
+                                    </button>
+                                    <button class="fabric-card-btn" data-fabric="linen" data-price="35">
+                                        <div class="fabric-swatch-circle" style="background: radial-gradient(circle, #ded2bf 0%, #b8a58a 100%);"></div>
+                                        <div class="fabric-info">
+                                            <h5>Belgian Organic Linen</h5>
+                                            <p>Breathable & textured (+$35)</p>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Primary Hue Swatches -->
+                            <div class="control-group">
+                                <div class="control-label">
+                                    <span>Primary Haute Hue</span>
+                                    <span class="control-value-badge" id="valColorName">Emerald Royale</span>
+                                </div>
+                                <div class="luxury-palette">
+                                    <button class="color-swatch-btn active" data-color="#1b4d3e" data-name="Emerald Royale" style="background: #1b4d3e;" title="Emerald Royale"></button>
+                                    <button class="color-swatch-btn" data-color="#111116" data-name="Midnight Noir" style="background: #111116;" title="Midnight Noir"></button>
+                                    <button class="color-swatch-btn" data-color="#671926" data-name="Bordeaux Wine" style="background: #671926;" title="Bordeaux Wine"></button>
+                                    <button class="color-swatch-btn" data-color="#1b2a47" data-name="Sapphire Imperial" style="background: #1b2a47;" title="Sapphire Imperial"></button>
+                                    <button class="color-swatch-btn" data-color="#d67d8c" data-name="Rose Quartz" style="background: #d67d8c;" title="Rose Quartz"></button>
+                                    <button class="color-swatch-btn" data-color="#d4af37" data-name="Champagne Aurum" style="background: #d4af37;" title="Champagne Aurum"></button>
+                                    <button class="color-swatch-btn" data-color="#f5efe6" data-name="Pearl Alabaster" style="background: #f5efe6;" title="Pearl Alabaster"></button>
+                                    <button class="color-swatch-btn" data-color="#4a3728" data-name="Espresso Silk" style="background: #4a3728;" title="Espresso Silk"></button>
+                                </div>
+                            </div>
+
+                            <!-- Accent / Belt Hue -->
+                            <div class="control-group">
+                                <div class="control-label">
+                                    <span>Belt & Sash Accent Trim</span>
+                                    <span class="control-value-badge" id="valAccentName">Metallic Gold</span>
+                                </div>
+                                <div class="luxury-palette">
+                                    <button class="color-swatch-btn active" data-accent="#d4af37" data-accent-name="Metallic Gold" style="background: #d4af37;" title="Metallic Gold"></button>
+                                    <button class="color-swatch-btn" data-accent="#f5efe6" data-accent-name="Pearl Cream" style="background: #f5efe6;" title="Pearl Cream"></button>
+                                    <button class="color-swatch-btn" data-accent="#111116" data-accent-name="Onyx Black" style="background: #111116;" title="Onyx Black"></button>
+                                    <button class="color-swatch-btn" data-accent="#d67d8c" data-accent-name="Blush Velvet" style="background: #d67d8c;" title="Blush Velvet"></button>
+                                </div>
+                            </div>
+
+                            <!-- Pattern Overlay -->
+                            <div class="control-group">
+                                <div class="control-label">
+                                    <span>Fabric Weave / Jacquard Pattern</span>
+                                </div>
+                                <div class="options-grid">
+                                    <button class="option-card-btn active" data-pattern="solid">
+                                        <i class="fas fa-circle"></i>
+                                        <span>Pure Solid</span>
+                                    </button>
+                                    <button class="option-card-btn" data-pattern="floral">
+                                        <i class="fas fa-spa"></i>
+                                        <span>Floral Lace</span>
+                                    </button>
+                                    <button class="option-card-btn" data-pattern="polka">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                        <span>Swiss Dot</span>
+                                    </button>
+                                    <button class="option-card-btn" data-pattern="stripes">
+                                        <i class="fas fa-grip-lines"></i>
+                                        <span>Pinstripe</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TAB 3: Smart Tailoring & Exact Measurements -->
+                        <div class="tab-content" id="tab-measurements">
+                            <!-- Height Slider -->
+                            <div class="control-group">
+                                <div class="control-label">
+                                    <span>Client Height</span>
+                                    <span class="control-value-badge" id="valHeight">168 cm (5'6")</span>
+                                </div>
+                                <div class="slider-group">
+                                    <input type="range" class="range-slider" id="sliderHeight" min="145" max="195" value="168">
+                                    <div class="slider-limits">
+                                        <span>145 cm (4'9")</span>
+                                        <span>195 cm (6'5")</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Weight Slider -->
+                            <div class="control-group">
+                                <div class="control-label">
+                                    <span>Client Weight</span>
+                                    <span class="control-value-badge" id="valWeight">62 kg (136 lbs)</span>
+                                </div>
+                                <div class="slider-group">
+                                    <input type="range" class="range-slider" id="sliderWeight" min="40" max="120" value="62">
+                                    <div class="slider-limits">
+                                        <span>40 kg (88 lbs)</span>
+                                        <span>120 kg (265 lbs)</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Bust & Waist Measurements -->
+                            <div class="form-row">
+                                <div class="control-group">
+                                    <div class="control-label">
+                                        <span>Bust Size</span>
+                                        <span class="control-value-badge" id="valBust">88 cm</span>
+                                    </div>
+                                    <input type="range" class="range-slider" id="sliderBust" min="70" max="130" value="88">
+                                </div>
+                                <div class="control-group">
+                                    <div class="control-label">
+                                        <span>Waist Size</span>
+                                        <span class="control-value-badge" id="valWaist">70 cm</span>
+                                    </div>
+                                    <input type="range" class="range-slider" id="sliderWaist" min="55" max="115" value="70">
+                                </div>
+                            </div>
+
+                            <!-- Fit Preference -->
+                            <div class="control-group">
+                                <div class="control-label">
+                                    <span>Fit Sculpting Preference</span>
+                                </div>
+                                <div class="options-grid">
+                                    <button class="option-card-btn active" data-fit="sculpted">
+                                        <i class="fas fa-compress-arrows-alt"></i>
+                                        <span>Sculpted / Snug</span>
+                                    </button>
+                                    <button class="option-card-btn" data-fit="classic">
+                                        <i class="fas fa-tshirt"></i>
+                                        <span>Classic Tailored</span>
+                                    </button>
+                                    <button class="option-card-btn" data-fit="relaxed">
+                                        <i class="fas fa-wind"></i>
+                                        <span>Flowing / Relaxed</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Price & Order Action Bar -->
+                        <div class="studio-checkout-bar">
+                            <div class="price-breakdown-box">
+                                <span class="subtext">Custom Bespoke Total</span>
+                                <div class="current-total">
+                                    <span id="studioCurrencySymbol">$</span><span id="studioPrice">245</span>
+                                </div>
+                            </div>
+                            <button class="btn-add-to-bag" id="addToBagBtn">
+                                <i class="fas fa-shopping-bag"></i> Add to Atelier Bag
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fabrics & Craftsmanship Showcase -->
+        <section id="fabrics" class="craftsmanship-section">
+            <div class="container">
+                <div class="craft-grid">
+                    <div class="craft-image-frame">
+                        <img src="assets/craftsmanship.jpg" alt="Artisan Tailoring & Silk Fabric Selection">
+                        <div class="craft-badge-overlay">
+                            <h4>Atelier Certified</h4>
+                            <p>Hand-cut & French-seamed by master Parisian tailors.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="section-tag">Haute Couture Ethics</span>
+                        <h2 class="section-title">Zero-Waste Precision & Heirloom Silks</h2>
+                        <p class="section-subtitle">
+                            Every garment ordered from Atelier Couture is made-to-order, ensuring zero textile landfill waste. We exclusively source OEKO-TEX standard grade-6A Mulberry silk, Italian velvets, and French lace.
+                        </p>
+                        <div class="craft-feature-list">
+                            <div class="craft-feature-item">
+                                <div class="craft-icon-box"><i class="fas fa-cut"></i></div>
+                                <div>
+                                    <h4>Custom Pattern Making</h4>
+                                    <p>Our digital cutter grades each pattern to your exact torso-to-hip ratio before hand-stitching.</p>
+                                </div>
+                            </div>
+                            <div class="craft-feature-item">
+                                <div class="craft-icon-box"><i class="fas fa-shield-alt"></i></div>
+                                <div>
+                                    <h4>100% Fit Guarantee</h4>
+                                    <p>If your dress doesn't fit like a second skin, we cover local alterations up to $75 or craft a complete remake free.</p>
+                                </div>
+                            </div>
+                            <div class="craft-feature-item">
+                                <div class="craft-icon-box"><i class="fas fa-box-open"></i></div>
+                                <div>
+                                    <h4>Luxury Presentation Box</h4>
+                                    <p>Arrives in an acid-free archival storage box with cedar sachet and personalized garment hanger.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trending Inspiration / Ready-to-Wear Gallery -->
+        <section id="collections" class="gallery-section">
+            <div class="container">
+                <div class="section-head">
+                    <span class="section-tag">Trending Creations</span>
+                    <h2 class="section-title">Curated Atelier Lookbook</h2>
+                    <p class="section-subtitle">Popular bespoke configurations crafted for galas, red carpets, and summer soirées.</p>
+                </div>
+
+                <div class="gallery-cards">
+                    <!-- Look 1 -->
+                    <div class="gallery-card">
+                        <div class="card-preview-area">
+                            <span class="gallery-badge">Bestseller</span>
+                            <i class="fas fa-wand-magic-sparkles" style="font-size: 3.5rem; color: #1b4d3e;"></i>
+                        </div>
+                        <div class="card-details">
+                            <h4>The Emerald Gala</h4>
+                            <p class="card-specs">A-Line Silhouette • Sweetheart Neck • Mulberry Silk • Sash Belt</p>
+                            <div class="card-bottom-row">
+                                <span class="card-price">$245</span>
+                                <button class="btn-load-preset" data-preset="gala">Load in Studio</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Look 2 -->
+                    <div class="gallery-card">
+                        <div class="card-preview-area">
+                            <span class="gallery-badge">Summer Soirée</span>
+                            <i class="fas fa-sun" style="font-size: 3.5rem; color: #d67d8c;"></i>
+                        </div>
+                        <div class="card-details">
+                            <h4>The Riviera Slip</h4>
+                            <p class="card-specs">Flowing Maxi • Plunging V • French Chiffon • High Slit</p>
+                            <div class="card-bottom-row">
+                                <span class="card-price">$260</span>
+                                <button class="btn-load-preset" data-preset="riviera">Load in Studio</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Look 3 -->
+                    <div class="gallery-card">
+                        <div class="card-preview-area">
+                            <span class="gallery-badge">Evening Velvet</span>
+                            <i class="fas fa-gem" style="font-size: 3.5rem; color: #671926;"></i>
+                        </div>
+                        <div class="card-details">
+                            <h4>The Bordeaux Belle</h4>
+                            <p class="card-specs">Mermaid / Bodycon • Off-Shoulder • Crushed Velvet • Fitted</p>
+                            <div class="card-bottom-row">
+                                <span class="card-price">$285</span>
+                                <button class="btn-load-preset" data-preset="cocktail">Load in Studio</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Look 4 -->
+                    <div class="gallery-card">
+                        <div class="card-preview-area">
+                            <span class="gallery-badge">Bridal Éclat</span>
+                            <i class="fas fa-ring" style="font-size: 3.5rem; color: #d4af37;"></i>
+                        </div>
+                        <div class="card-details">
+                            <h4>The Pearl Ballgown</h4>
+                            <p class="card-specs">Regal Ballgown • Sweetheart Neck • Pearl Alabaster Silk</p>
+                            <div class="card-bottom-row">
+                                <span class="card-price">$320</span>
+                                <button class="btn-load-preset" data-preset="bridal">Load in Studio</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How Bespoke Works -->
+        <section id="how-it-works" class="how-it-works">
+            <div class="container">
+                <div class="section-head">
+                    <span class="section-tag">Seamless Atelier Flow</span>
+                    <h2 class="section-title">How Your Bespoke Gown is Created</h2>
+                    <p class="section-subtitle">From virtual configuration to your doorstep in four transparent steps.</p>
+                </div>
+
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-number">01</div>
+                        <h4>Design & Stylize</h4>
+                        <p>Select your silhouette, neckline, fabrics, and custom accents in our interactive 2D customizer.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">02</div>
+                        <h4>Smart Sizing</h4>
+                        <p>Enter your height, weight, and key contours. Our algorithmic tailor ensures proportionate drape.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">03</div>
+                        <h4>Artisan Stitching</h4>
+                        <p>Master tailors hand-cut the silk, sew reinforced French seams, and hand-embroider trims.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">04</div>
+                        <h4>White-Glove Delivery</h4>
+                        <p>Receive your gown within 10-14 business days, complete with complimentary alteration coverage.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Client Reviews & Accolades -->
+        <section id="reviews" class="reviews-section">
+            <div class="container">
+                <div class="section-head">
+                    <span class="section-tag">Verified Clients</span>
+                    <h2 class="section-title">Loved by Women Worldwide</h2>
+                    <p class="section-subtitle">Read why over 45,000 customers trust Atelier Couture for their most memorable occasions.</p>
+                </div>
+
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-quote">
+                            "I needed a gown for the Venice Biennale that wouldn't drag on the floor. Entering my exact height and bust gave me a dress that felt like it was made on Savile Row."
+                        </p>
+                        <div class="reviewer-profile">
+                            <div class="reviewer-avatar">EC</div>
+                            <div class="reviewer-meta">
+                                <h5>Elena Costantini</h5>
+                                <p>Milan, Italy • Custom Emerald Gala</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-quote">
+                            "The mulberry silk is genuinely heavy, lustrous, and luxurious. The virtual studio preview matched the dress that arrived in the mail 100%!"
+                        </p>
+                        <div class="reviewer-profile">
+                            <div class="reviewer-avatar">SL</div>
+                            <div class="reviewer-meta">
+                                <h5>Sophie Laurent</h5>
+                                <p>Paris, France • Bordeaux Velvet Gown</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-quote">
+                            "As someone who is petite and often struggles with off-the-rack sizing, Atelier Couture is a game changer. The fit guarantee gave me total peace of mind."
+                        </p>
+                        <div class="reviewer-profile">
+                            <div class="reviewer-avatar">MH</div>
+                            <div class="reviewer-meta">
+                                <h5>Maya Henderson</h5>
+                                <p>New York, USA • Riviera Silk Slip</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Frequently Asked Questions (FAQ) -->
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <div class="section-head">
+                    <span class="section-tag">Got Questions?</span>
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    <p class="section-subtitle">Everything you need to know about our bespoke tailoring process.</p>
+                </div>
+
+                <div class="faq-container">
+                    <div class="faq-item active">
+                        <button class="faq-header">
+                            <span>How does the 100% Flawless Fit Guarantee work?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-body">
+                            If your custom dress needs slight adjustments after arrival, we will reimburse your local tailor receipt up to $75 USD. In the rare event that it cannot be altered locally, we will remake your entire garment from scratch at no charge.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-header">
+                            <span>How long does hand-tailoring and shipping take?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-body">
+                            Our standard bespoke creation time is 7-10 business days for laser cutting and artisan stitching, followed by 3-4 days via DHL Express white-glove worldwide shipping.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-header">
+                            <span>Are your fabrics sustainably and ethically sourced?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-body">
+                            Yes. We exclusively use certified 100% natural OEKO-TEX Grade-6A Mulberry silk and organic cottons. Because we operate on a strict made-to-order model, we generate 0% leftover retail unsold stock.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-header">
+                            <span>Can I enter custom measurements not on the sliders?</span>
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-body">
+                            Yes! During checkout, there is a dedicated "Bespoke Notes" field where you can provide custom hollow-to-hem length, shoulder-to-wrist measurements, or heel height specifications.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Slide-Out Shopping Bag / Cart Drawer -->
+    <div class="cart-drawer-overlay" id="cartOverlay"></div>
+    <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping Bag Drawer">
+        <div class="cart-header">
+            <h3>Your Atelier Bag (<span id="cartDrawerCount">0</span>)</h3>
+            <button class="close-drawer-btn" id="closeCartBtn" aria-label="Close Bag"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items-container" id="cartItemsList">
+            <!-- Dynamic Cart Items Injected Here -->
+            <div class="cart-empty-state">
+                <i class="fas fa-shopping-bag"></i>
+                <p>Your bespoke bag is currently empty.</p>
+                <a href="#studio" class="btn-luxury-primary" style="margin-top: 1.5rem; display: inline-flex;" onclick="closeCart()">
+                    Start Designing
+                </a>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="coupon-row">
+                <input type="text" class="coupon-input" id="couponCodeInput" placeholder="Promo code (try ATELIER15)">
+                <button class="coupon-btn" id="applyCouponBtn">Apply</button>
+            </div>
+            <div class="cart-summary-line">
+                <span>Subtotal</span>
+                <span id="cartSubtotal">$0</span>
+            </div>
+            <div class="cart-summary-line" id="discountRow" style="display: none; color: #4ecdc4;">
+                <span>Atelier VIP Discount (15%)</span>
+                <span id="cartDiscount">-$0</span>
+            </div>
+            <div class="cart-summary-line">
+                <span>Bespoke Worldwide Delivery</span>
+                <span style="color: var(--color-gold);">Complimentary</span>
+            </div>
+            <div class="cart-summary-line total">
+                <span>Estimated Total</span>
+                <span id="cartTotal">$0</span>
+            </div>
+            <button class="btn-checkout" id="proceedCheckoutBtn">
+                <i class="fas fa-lock"></i> Bespoke Checkout
+            </button>
+        </div>
+    </aside>
+
+    <!-- Multi-Step Checkout Modal Flow -->
+    <div class="modal-overlay" id="checkoutModalOverlay">
+        <div class="checkout-modal">
+            <div class="modal-header">
+                <h3 id="modalStepTitle">Bespoke Delivery Details</h3>
+                <button class="close-drawer-btn" id="closeModalBtn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <form class="checkout-form" id="checkoutForm">
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="custFirstName">First Name *</label>
+                            <input type="text" id="custFirstName" required placeholder="Elena">
+                        </div>
+                        <div class="form-field">
+                            <label for="custLastName">Last Name *</label>
+                            <input type="text" id="custLastName" required placeholder="Laurent">
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <label for="custEmail">Email Address (for order tracking) *</label>
+                        <input type="email" id="custEmail" required placeholder="elena@example.com">
+                    </div>
+                    <div class="form-field">
+                        <label for="custAddress">Shipping Address *</label>
+                        <input type="text" id="custAddress" required placeholder="124 Rue du Faubourg Saint-Honoré">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="custCity">City *</label>
+                            <input type="text" id="custCity" required placeholder="Paris">
+                        </div>
+                        <div class="form-field">
+                            <label for="custPostal">Postal Code *</label>
+                            <input type="text" id="custPostal" required placeholder="75008">
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <label for="custNotes">Bespoke Tailoring Notes (Optional)</label>
+                        <textarea id="custNotes" rows="2" placeholder="e.g., Wearing 3-inch stilettos, please add 2cm to hem; event date is Nov 12."></textarea>
+                    </div>
+                    <button type="submit" class="btn-luxury-primary" style="width: 100%; justify-content: center; margin-top: 1rem;">
+                        Confirm & Place Bespoke Order
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Editorial Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h2>Atelier Couture</h2>
+                <p>Haute couture fashion design, precision algorithmic laser sizing, and ethical artisan tailoring for the modern connoisseur.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link" title="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#" class="social-link" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="social-link" title="Vogue Runway"><i class="fas fa-feather"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Design Studio</h4>
+                <ul class="footer-links">
+                    <li><a href="#studio">Bespoke Customizer</a></li>
+                    <li><a href="#collections">Lookbook Collections</a></li>
+                    <li><a href="#fabrics">Mulberry Silks</a></li>
+                    <li><a href="#how-it-works">Tailoring Craft</a></li>
+                    <li><a href="#faq">Fit Guarantee</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Atelier Client Care</h4>
+                <ul class="footer-links">
+                    <li><a href="#faq">Worldwide Delivery</a></li>
+                    <li><a href="#faq">Alteration Reimbursement</a></li>
+                    <li><a href="#faq">Care Guide for Silk</a></li>
+                    <li><a href="#reviews">Verified Reviews</a></li>
+                    <li><a href="mailto:concierge@ateliercouture.com">VIP Concierge</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Atelier VIP Club</h4>
+                <p style="font-size: 0.88rem; color: var(--color-text-muted);">Receive seasonal lookbooks, invitation-only fabric drops, and 15% off your first bespoke gown.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Bienvenue! Use code ATELIER15 for 15% off your bespoke creation.');">
+                    <input type="email" class="newsletter-input" required placeholder="Enter your email">
+                    <button type="submit" class="newsletter-btn">Join</button>
+                </form>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>© 2026 ATELIER COUTURE Inc. All rights reserved. Handcrafted with pride.</p>
+            <p>Paris • Milan • London • New York</p>
+        </div>
+    </footer>
+
+    <!-- Atelier JavaScript Application -->
+    <script src="dress-script.js"></script>
+</body>
+</html>
